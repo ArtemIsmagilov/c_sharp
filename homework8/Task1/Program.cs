@@ -1,9 +1,4 @@
-﻿(int, int) get_size(int[,] matrix)
-{
-    return (matrix.GetLength(0), matrix.GetLength(1));
-}
-
-void print_array(int[] array)
+﻿void print_array(int[] array)
 {
     for(int i = 0; i < array.Length; i ++)
     {
@@ -30,7 +25,7 @@ int[, ] create_matrix(int r, int c, int min, int max)
 
 void sorted_rows(int[, ] matrix)
 {
-    (int rows, int columns) = get_size(matrix);
+    (int rows, int columns) = (matrix.GetLength(0), matrix.GetLength(1));
     for (int i = 0; i < rows; i ++)
     {
         int[] res_arr = new int[columns];
@@ -39,6 +34,7 @@ void sorted_rows(int[, ] matrix)
             res_arr[j] = matrix[i, j];
         }
         Array.Sort(res_arr);
+        Array.Reverse(res_arr);
         print_array(res_arr);
 
     }
